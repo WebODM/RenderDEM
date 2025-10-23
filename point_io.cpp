@@ -250,10 +250,12 @@ PointSet *pdalReadPointSet(const std::string &filename, uint8_t onlyClass, size_
         r->x[i] = p.getFieldAs<double>(pdal::Dimension::Id::X);
         r->y[i] = p.getFieldAs<double>(pdal::Dimension::Id::Y);
         r->z[i] = p.getFieldAs<double>(pdal::Dimension::Id::Z);
+
         r->extent.update(r->x[i], r->y[i]);
 
         i++;
     }
+    if (i == 0) throw std::runtime_error("No points");
 
     r->resize(i);
 
