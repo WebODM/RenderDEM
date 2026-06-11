@@ -26,7 +26,7 @@ struct Extent{
 
     Extent(){
         minx = miny = (std::numeric_limits<double>::max)();
-        maxx = maxy = (std::numeric_limits<double>::min)();
+        maxx = maxy = (std::numeric_limits<double>::lowest)();
     }
 
     void inline update(double x, double y){
